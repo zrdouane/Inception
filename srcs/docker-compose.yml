@@ -8,8 +8,12 @@ services:
   depends_on:
     - wordpress
   build:
-  context:  ./srcs/requirements/nginx
-  dockerfile: Dockerfile
+    context:  ./requirements/nginx
+    dockerfile: Dockerfile
   restart: on-failure
-  port:
+  ports:
     - "443:443"
+networks:
+  - inception
+env:
+
