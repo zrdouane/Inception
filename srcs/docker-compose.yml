@@ -1,0 +1,15 @@
+#configure multi-container zrdouane<rdouanezakaria@gmail.com>
+version : '3.8'
+services:
+  nginx:
+    container-name
+  image:
+    nginx
+  depends_on:
+    - wordpress
+  build:
+  context:  ./srcs/requirements/nginx
+  dockerfile: Dockerfile
+  restart: on-failure
+  port:
+    - "443:443"
