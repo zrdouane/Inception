@@ -1,6 +1,6 @@
 # dockerfile
 # debian:11 or debian:bullseye is the same :11 just an alias
-FROM debian:11
+FROM debian:bullseye
 # Install dependencies
 RUN apt-get update -y && apt-get install -y --no-install-recommends \
     nginx=1.18.0-6.1+deb11u3 openssl=1.1.1w-0+deb11u1 \
@@ -16,7 +16,7 @@ RUN mkdir -p /etc/nginx/ssl /var/run/nginx && \
 
 # Copy configuration and shell script
 COPY ./conf/default /etc/nginx/sites-enabled/
-COPY entrypoint.sh /entrypoint.sh
+COPY tools/entrypoint.sh /entrypoint.sh
 
 # Set permissions
 RUN chmod 755 /var/www/html && chown -R www-data:www-data /var/www/html
